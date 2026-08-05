@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  2fauth:
+    image: 2fauth/2fauth:latest
+    container_name: ${CONTAINER_NAME:-2fauth}
+    restart: unless-stopped
+    networks:
+      - highfishNetwork
+    ports:
+      - "${HTTP_PORT:-4444}:8000"
+    volumes:
+      - ${DATA_DIR:-/opt/docker/2fauth}:/2fauth
+    environment:
+      APP_NAME: ${APP_NAME:-2FAuth}
+      APP_ENV: ${APP_ENV:-production}
+      APP_DEBUG: ${APP_DEBUG:-false}
+      APP_URL: ${APP_URL:-http://otp.arbeitermili.eu}
+      APP_KEY: ${APP_KEY:-YourSuperSecretKeyHere32CharsLong!}
+      APP_TIMEZONE: ${APP_TIMEZONE:-Europe/Berlin}
+      DB_CONNECTION: ${DB_CONNECTION:-sqlite}
+      DB_DATABASE: ${DB_DATABASE:-/2fauth/database/database.sqlite}
+
+networks:
+  highfishNetwork:
+    external: true
