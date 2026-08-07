@@ -1,5 +1,9 @@
 # hAI.2FAuth-OTPatHome
 
+<a href="https://www.buymeacoffee.com/highfish">
+<img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
+</a>
+
 Docker Compose Stack für **2FAuth** – eigene 2FA-Token-Verwaltung, gehostet zuhause.
 
 ## Setup
@@ -34,3 +38,4 @@ docker compose up -d
 
 Der Stack nutzt das externe Netzwerk `highfishNetwork`, damit weitere Stacks
 (z.B. ein Reverse-Proxy) mit 2FAuth kommunizieren können.
+
